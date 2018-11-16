@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{%block body%}
+
+<header id="header">
+    <section class="section container">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col m7 s12">
+                <h2>Get Checked. <br> Stay Healthy. <br> Take Control Today...</h2>
+                <p class="flow-text">You are unique. So is our diagnosis. We detect and diagnose your health risk
+                    early and help you stay healthy.</p>
+                <a href="/signup" class="btn-large red darken-4">GET STARTED</a>
+            </div>
+        </div>
+    </section>
+</header>
+<br>
+<section class="section container">
+    <div class="row">
+        <div class="col m6 s12">
+            <h3>Book An Appointment</h3>
+            <p>Schedule a test or book a home collection appointment. Upto 24 hours in advance, convinient and time
+                saving.</p>
+            <!--<a href="#" class="btn-large red darken-4">BOOK NOW</a>-->
+        </div>
+        <div class="col m6 s12">
+            <img src="{% static 'images/appointment.jpg' %}" alt="appointment-image" class="responsive-img hide-on-med-and-down">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col m6 s12">
+            <img src="{% static 'images/screening.jpg' %}" alt="health-screening" class="responsive-img hide-on-med-and-down">
+        </div>
+        <div class="col m6 s12">
+            <h3>Health Screening</h3>
+            <p>Get the best possible evaluation of your current health and future health risks. Book your tests <a
+                    href="#" class="red-text">here</a>.</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col m6 s12">
+            <h3>Online Access to Reports</h3>
+            <p>Access and tract your health report and diagnostic result online, at your own comfort.</p>
+        </div>
+        <div class="col m6 s12">
+            <img src="{% static 'images/tests.jpg' %}" alt="reports" class="responsive-img hide-on-med-and-down">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col m6 s12">
+            <img src="{% static 'images/futuristic-health.jpg'%}" alt="futuristic-health" class="responsive-img hide-on-med-and-down">
+        </div>
+        <div class="col m6 s12">
+            <h3>Futuristic Health</h3>
+            <p>Get accesses to new health services and speciality care programs (Diabetic care program, Genome
+                Sequencing and more).</p>
+        </div>
+    </div>
+</section>
+{%endblock%}
