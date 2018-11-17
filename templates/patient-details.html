@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patient Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Cabin" rel="stylesheet">
+    <!--Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+        h3{
+             font-family: Anton;
+             color: #b71c1c;
+             margin-top: 0px;
+         }
+         p{
+             font-family: Cabin;
+             font-size: 22px;
+         }
+         label{
+             font-size: 16px;
+         }
+         nav{
+            border-bottom: 4px solid #b71c1c;
+        }
+        .card{
+            align-content: center;
+        }
+       #side-nav .card{
+           background-color: #b71c1c;
+           height: 770px;
+        }
+        #side-nav .card a{
+            color: white;
+            padding: 12px;
+            display: block;
+            font-size: 20px;
+            font-family: Cabin;
+            border-bottom: 2px solid #b71c1c;
+        }
+        #side-nav .card a:hover{
+            background-color: white;
+            color: black;
+        }
+        #person-icon{
+           padding: 4px;
+        }
+        footer{
+    background-image: url(../static/images/footer.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <nav class="nav nav-wrapper transparent">
+            <div class="container">
+                <a href="#" class="brand-logo black-text">Medical Firm</a>
+                <ul class="right">
+                    <li><a class="black-text" href="#">Features</a></li>
+                    <li><a class="black-text" href="#">Tests</a></li>
+                    <li><a class="black-text" href="#">Genetics</a></li>
+                    <li><a class="black-text" href="#">Medical Library</a></li>
+                    <li><a href="#" class="btn red darken-4">LOG IN</a></li>
+                    <li><a href="#" class="btn red darken-4">GET STARTED</a></li>
+                    <li><a href="" id="person-icon"><i class="material-icons red-text text-darken-4">person</i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="section">
+        <div class="row">
+            <div class="col m3 hide-on-small-and-down" id="side-nav">
+                <div class="card">
+                    <div class="card-content">
+                            <a href="#">Add Patient</a>
+                            <a href="#">View Patient</a>
+                    </div>
+                </div>
+            </div> 
+            <div class="col m9 s12">
+                <div class="card">
+                    <div class="card-content">
+                        <form action="">
+                            <h3>Patient Details</h3>
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    <div class="group">
+                                        <label for="patientId"><b class="red-text text-darken-4">Patient Id</b></label>
+                                        <input id="patientId" type="text" placeholder="Enter your Id" disabled="disabled" />
+                                    </div>
+                                </div>
+
+                                <div class="col m6 s12">
+                                    <label for="name"><b class="red-text text-darken-4">Name</b></label>
+                                    <input type="text" placeholder="Enter your name" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    <label for="ref-dr"><b class="red-text text-darken-4">Ref. Doctor</b></label>
+                                    <select class="browser-default">
+                                        <option value="" disabled selected>Ref. Doctor</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                </div>
+                                <div class="col m3 s6">
+                                    <label for="dob"><b class="red-text text-darken-4">DOB</b></label>
+                                    <input id="dob" type="text" class="datepicker" placeholder="DD/MM/YY" />
+                                </div>
+                                <div class="col m3 s6">
+                                    <label for="gender"><b class="red-text text-darken-4">Gender</b></label>
+                                    <select class="browser-default">
+                                        <option value="" disabled selected>Gender</option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    <label for="ref-hospital"><b class="red-text text-darken-4">Ref. Hospital</b></label>
+                                    <select class="browser-default">
+                                        <option value="" disabled selected>Ref. Hospital</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                </div>
+                                <div class="col m6 s12">
+                                    <div class="group">
+                                        <label for="IP No."><b class="red-text text-darken-4">IP No.</b></label>
+                                        <input type="text" placeholder="Enter your IP No." />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    <label for="datepicker"><b class="red-text text-darken-4">Pick a date</b></label>
+                                    <input id="output" type="text">
+                                </div>
+                                <div class="col m6 s12">
+                                    <div class="group">
+                                        <label for="email"><b class="red-text text-darken-4">Email</b></label>
+                                        <input type="text" placeholder="Enter your Email" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    <div class="group">
+                                        <label for="text"><b class="red-text text-darken-4">Test Chart</b></label>
+                                        <input type="text" placeholder="Add a test" />
+                                        <button class="btn-small red darken-4">add</button>
+                                    </div>
+                                </div>
+                                <div class="col m6 s12">
+                                    <div class="group">
+                                        <label for="text"><b class="red-text text-darken-4">Total Discount (%)</b></label>
+                                        <input type="text" placeholder="Total Discount By" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col m6 s12">
+                                    <div class="group">
+                                        <label for="text"><b class="red-text text-darken-4">Amount Paid</b></label>
+                                        <input type="text" placeholder="Amount Paid" />
+                                    </div>
+                                </div>
+                                <div class="col m6 s12">
+                                    <div class="group">
+                                        <label for="text"><b class="red-text text-darken-4">Balance Due</b></label>
+                                        <input type="text" placeholder="Balance Due" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn red darken-4">Submit</button>
+                            <button class="btn red darken-4">Print Report</button>
+                    </div>
+                </div>
+                 </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="page-footer">
+        <section class="section container">
+            <div class="row">
+                <div class="col m10 s12">
+                    <h3 class="white-text center">Stay Healthy. Stay Fit. In Doubt Reach Us :</h3>
+
+                    <p><b>Phone No : </b> 0861- 2310792</p>
+                    <p><b>Location : </b> S.S Diagnostics, <br> Railway Line Street, <br> Near Vijayamahal Gate, <br>
+                        Nellore - 524001.</p>
+                </div>
+            </div>
+        </section>
+        <div class="footer-copyright">
+            <div class="container center">
+                &copy; 2018 The Medical Firm
+            </div>
+        </div>
+    </footer>
+
+<script>
+    var myNum = Math.floor(Math.random()*1000000);
+    myNum = myNum.toString();
+    console.log(myNum);
+document.getElementById("patientId").value = "MF00" + myNum;
+var today = new Date();
+
+var day = today.getDate();
+var month = today.getMonth() + 1;
+var year = today.getFullYear();
+
+if (day < 10) {
+  day = '0' + day
+}
+if (month < 10) {
+  month = '0' + month
+}
+
+var out = document.getElementById("output");
+
+out.value = day + "/" + month + "/" + year;
+</script>    
+</body>
+
+</html>

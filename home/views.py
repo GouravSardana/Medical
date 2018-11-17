@@ -33,6 +33,7 @@ class SignUp(TemplateView):
 class LogIn(TemplateView):
     template_name = 'login.html'
 
+
 def user_login(request):
 
     if request.method == 'POST':
@@ -53,8 +54,10 @@ def user_login(request):
 
                 if user.groups.filter(name='Doctor'):
                     return HttpResponse('Hey student')
+                elif user.groups.filter(name='LabUser'):
+                    return HttpResponseRedirect(reverse('patient_details'))
                 else:
-                    return HttpResponse('Hey {}'.format(user))
+                    return HttpResponse('Hey Customer')
             else:
                 # If account is not active:
                 return HttpResponse("Your account is not active.")
@@ -66,25 +69,16 @@ def user_login(request):
     else:
         #Nothing has been provided for username or password.
         return render(request, 'login.html', {})
-#
-# def user_login(self, username=None, password=None):
-#          try:
-#              o = Hospital.objects.get(username=username, password=password)
-#          except Hospital.DoesNotExist:
-#              try:
-#                  o = User.objects.get(username=username, password=password)
-#              except User.DoesNotExist:
-#                  return None
-#          return User.objects.get(username=o.username)
-# def get_user(self, user_id):
-#     try:
-#         return User.objects.get(pk=user_id)
-#     except User.DoesNotExist:
-#         return None
+
 
 @login_required
 def user_logout(request):
     # Log out the user.
     logout(request)
     # Return to homepage.
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('home'))
+
+
+class Patient_details(TemplateView):
+    template_name = 'patient-details.html'
+
