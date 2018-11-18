@@ -19,12 +19,7 @@ img{
     border-right: 4px solid #b71c1c;
     border-left: 4px solid #b71c1c;
 }
-footer{
-    background-image: url(../images/footer.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 500px;
-}
+
 #signuph3, #login_h3{
  font-family: Anton;
  color: #b71c1c;

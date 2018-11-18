@@ -4,12 +4,15 @@ from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 
 from django.views.generic import TemplateView
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
+from django.views.generic.list import ListView
 
+from home.models import Patient_Detail, Hospital
 
 
 class Home(TemplateView):
@@ -70,7 +73,6 @@ def user_login(request):
         #Nothing has been provided for username or password.
         return render(request, 'login.html', {})
 
-
 @login_required
 def user_logout(request):
     # Log out the user.
@@ -78,7 +80,33 @@ def user_logout(request):
     # Return to homepage.
     return HttpResponseRedirect(reverse('home'))
 
-
-class Patient_details(TemplateView):
+@method_decorator(login_required, name='dispatch')
+class Patient_details(ListView):
+    model=Patient_Detail
     template_name = 'patient-details.html'
+    # def get_queryset(self):
+    #     return Patient.objects.filter(provider=self.request.user).order_by('-id')
+    # def get_queryset(self):
+    #     return User.objects.filter(groups__name='Doctor')
+
+    def get(self, request, *args, **kwargs):
+        features = User.objects.filter(groups__name='Doctor')
+        patient = Patient_Detail.objects.all()
+        hospital=Hospital.objects.all()
+        print(features)
+        print(patient)
+        return render(request, 'patient-details.html', {'f': features, 'p': patient, 'hospital':hospital})
+
+
+    def post(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            user=request.user
+            name = self.request.POST.get('name')
+            IP = self.request.POST.get('IP')
+            user_email=self.request.POST.get('user_email')
+            # balance = self.request.POST.get('balance')
+            total= self.request.POST.get('total')
+            form = Patient_Detail(user=user, user_email=user_email, name=name, IP=IP, total=total)
+            form.save()
+            return HttpResponse('Done')
 

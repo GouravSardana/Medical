@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Anton|Cabin" rel="stylesheet">
     <!--CSS-->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <header>
@@ -30,15 +31,16 @@
         </div>
     </nav>
 </header>
-{%block body%}
 
-{%endblock%}
-</body>
-<footer class="page-footer">
+<body>
+    {%block body%}
+
+    {%endblock%}
+    <footer id="footer" class="page-footer grey darken-4">
         <section class="section container">
             <div class="row">
                 <div class="col m10 s12">
-                    <h3 class="white-text center">Stay Healthy. Stay Fit. In Doubt Reach Us :</h3>
+                    <h3 class="white-text">Stay Healthy. Stay Fit. In Doubt Reach Us :</h3>
 
                     <p><b>Phone No : </b> 0861- 2310792</p>
                     <p><b>Location : </b> S.S Diagnostics, <br> Railway Line Street, <br> Near Vijayamahal Gate, <br>
