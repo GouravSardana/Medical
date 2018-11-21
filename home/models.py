@@ -5,19 +5,19 @@ from django.dispatch import receiver
 
 
 class Patient_Detail(models.Model):
-    MALE = 'male'
-    FEMALE = 'female'
-    UNDEFINED = 'undefined'
-
-    GENDER_CHOICES = (
-        (MALE, 'Male'),
-        (FEMALE, 'Female'),
-        (UNDEFINED, 'Undefined')
-    )
+    # MALE = 'male'
+    # FEMALE = 'female'
+    # UNDEFINED = 'undefined'
+    #
+    # GENDER_CHOICES = (
+    #     (MALE, 'Male'),
+    #     (FEMALE, 'Female'),
+    #     (UNDEFINED, 'Undefined')
+    # )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name=models.CharField(max_length=40)
     IP=models.CharField(max_length=30)
-    gender=models.CharField(max_length=10, choices=GENDER_CHOICES)
+    gender=models.CharField(max_length=10)
     user_email=models.CharField(max_length=40)
     balance_due=models.IntegerField(default=0)
     total=models.IntegerField(default=0)

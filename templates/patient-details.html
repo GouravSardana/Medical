@@ -126,12 +126,13 @@
                                 </div>
                                 <div class="col m3 s6">
                                     <label for="gender"><b class="red-text text-darken-4">Gender</b></label>
-                                    <select class="browser-default">
+                                    <select name="parameters" class="browser-default">
                                         <option value="" disabled selected>Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="2">Female</option>
-                                        <option value="3">Other</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="undefined">Undefined</option>
                                     </select>
+                                    <input id="option" type="hidden" name="gender" />
                                 </div>
                             </div>
                             <div class="row">
@@ -219,7 +220,7 @@
                             </div>
                             <br>
                             <br>
-                            <button class="btn red darken-4">Submit</button>
+                            <button class="btn red darken-4" onclick="onSubmit()">Submit</button>
                             <button class="btn red darken-4">Print Report</button>
                     </div>
                 </div>
@@ -281,6 +282,13 @@ var cell3 = row.insertCell(2);
 cell1.innerHTML = "NEW CELL1";
 cell2.innerHTML = "NEW CELL1";
 cell3.innerHTML = "NEW CELL1";
+}
+
+<!--gender-->
+function onSubmit(){
+    var s =document.getElementsByName('parameters')[0];
+    var text=s.options[s.selectedIndex].text;
+    document.getElementById('option').value=text;
 }
 </script>    
 </body>

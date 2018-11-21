@@ -56,7 +56,7 @@ def user_login(request):
                 login(request, user)
 
                 if user.groups.filter(name='Doctor'):
-                    return HttpResponse('Hey student')
+                    return HttpResponse('Hey Doctor')
                 elif user.groups.filter(name='LabUser'):
                     return HttpResponseRedirect(reverse('patient_details'))
                 else:
@@ -104,9 +104,9 @@ class Patient_details(ListView):
             name = self.request.POST.get('name')
             IP = self.request.POST.get('IP')
             user_email=self.request.POST.get('user_email')
-            # balance = self.request.POST.get('balance')
+            gender = self.request.POST.get('gender')
             total= self.request.POST.get('total')
-            form = Patient_Detail(user=user, user_email=user_email, name=name, IP=IP, total=total)
+            form = Patient_Detail(user=user, user_email=user_email, name=name, IP=IP,gender=gender, total=total)
             form.save()
             return HttpResponse('Done')
 
