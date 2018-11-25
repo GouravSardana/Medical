@@ -84,8 +84,8 @@
             <div class="col m3 hide-on-small-and-down" id="side-nav">
                 <div class="card">
                     <div class="card-content">
-                            <a href="#">Add Patient</a>
-                            <a href="#">View Patient</a>
+                            <a href="/patient_details">Add Patient</a>
+                            <a href="/view_patient">View Patient</a>
                     </div>
                 </div>
             </div> 
@@ -105,13 +105,13 @@
 
                                 <div class="col m6 s12">
                                     <label for="name"><b class="red-text text-darken-4">Name</b></label>
-                                    <input type="text" name="name" placeholder="Enter your name" />
+                                    <input required type="text" name="name" placeholder="Enter your name" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col m6 s12">
                                     <label for="ref-dr"><b class="red-text text-darken-4">Ref. Doctor</b></label>
-                                    <select class="browser-default">
+                                    <select required class="browser-default" name="doctor">
                                         <option value="" disabled selected>Ref. Doctor</option>
                                         <option value="">
                                             {%for i in f%}
@@ -119,26 +119,27 @@
                                             {%endfor%}
                                         </option>
                                     </select>
+                                    <input id="doctor" type="hidden" name="doctor" />
                                 </div>
                                 <div class="col m3 s6">
                                     <label for="dob"><b class="red-text text-darken-4">DOB</b></label>
-                                    <input id="dob" name="DOB" type="text" class="datepicker" placeholder="DD/MM/YY" />
+                                    <input required id="dob" name="DOB" type="text" class="datepicker" placeholder="DD/MM/YY" />
                                 </div>
                                 <div class="col m3 s6">
                                     <label for="gender"><b class="red-text text-darken-4">Gender</b></label>
-                                    <select name="parameters" class="browser-default">
+                                    <select required name="parameters" class="browser-default">
                                         <option value="" disabled selected>Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="undefined">Undefined</option>
                                     </select>
-                                    <input id="option" type="hidden" name="gender" />
+                                    <input required id="gender" type="hidden" name="gender" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col m6 s12">
                                     <label for="ref-hospital"><b class="red-text text-darken-4">Ref. Hospital</b></label>
-                                    <select class="browser-default">
+                                    <select required class="browser-default", name="hospital">
                                         <option value="" disabled selected>Ref. Hospital</option>
                                         {% for i in hospital %}
                                         <option value="1">
@@ -149,23 +150,24 @@
                                         {% endfor %}
 
                                     </select>
+                                    <input required id="hospital_value" type="hidden" name="hospital_value" />
                                 </div>
                                 <div class="col m6 s12">
                                     <div class="group">
                                         <label for="IP No."><b class="red-text text-darken-4">IP No.</b></label>
-                                        <input type="text" name="IP" placeholder="Enter your IP No." />
+                                        <input required type="text" name="IP" placeholder="Enter your IP No." />
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col m6 s12">
                                     <label for="datepicker"><b class="red-text text-darken-4">Pick a date</b></label>
-                                    <input id="output" name="date" type="text">
+                                    <input required id="output" name="date" type="text">
                                 </div>
                                 <div class="col m6 s12">
                                     <div class="group">
                                         <label for="email"><b class="red-text text-darken-4">Email</b></label>
-                                        <input type="text" name="user_email" placeholder="Enter your Email" />
+                                        <input required type="text" name="user_email" placeholder="Enter your Email" />
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +175,7 @@
                                 <div class="col m6 s12">
                                     <div class="group">
                                         <label for="text"><b class="red-text text-darken-4">Test Chart</b></label>
-                                        <input type="text" placeholder="Add a test" />
+                                        <input required type="text" placeholder="Add a test" />
                                         <button onclick="myFunction(); return false;" class="btn-small red darken-4">add</button>
                                         <div style="display:none" id="table">
                                             <table>
@@ -192,7 +194,7 @@
                                 <div class="col m6 s12">
                                     <div class="group">
                                         <label for="text"><b class="red-text text-darken-4">Total Discount (%)</b></label>
-                                        <input type="text" placeholder="Total Discount By" />
+                                        <input disabled type="text" placeholder="Total Discount By" />
                                     </div>
                                 </div>
                             </div>
@@ -200,13 +202,13 @@
                                 <div class="col m6 s12">
                                     <div class="group">
                                         <label for="text"><b class="red-text text-darken-4">Amount Paid</b></label>
-                                        <input type="text" placeholder="Amount Paid" />
+                                        <input required type="text" placeholder="Amount Paid" />
                                     </div>
                                 </div>
                                 <div class="col m6 s12">
                                     <div class="group">
                                         <label for="text"><b class="red-text text-darken-4">Balance Due</b></label>
-                                        <input type="text" name="balance" placeholder="Balance Due" />
+                                        <input disabled type="text" name="balance" placeholder="Balance Due" />
                                     </div>
                                 </div>
                             </div>
@@ -214,7 +216,7 @@
                                  <div class="col m6 s12">
                                     <div class="group">
                                         <label for="text"><b class="red-text text-darken-4">Total Amount</b></label>
-                                        <input type="text" name="total" placeholder="Total" />
+                                        <input disabled type="text" name="total" placeholder="Total" />
                                     </div>
                                 </div>
                             </div>
@@ -252,7 +254,7 @@
     var myNum = Math.floor(Math.random()*1000000);
     myNum = myNum.toString();
     console.log(myNum);
-document.getElementById("patientId").value = "MF00" + myNum;
+document.getElementById("patientId").value = "PTID" + myNum;
 var today = new Date();
 
 var day = today.getDate();
@@ -288,7 +290,21 @@ cell3.innerHTML = "NEW CELL1";
 function onSubmit(){
     var s =document.getElementsByName('parameters')[0];
     var text=s.options[s.selectedIndex].text;
-    document.getElementById('option').value=text;
+    document.getElementById('gender').value=text;
+}
+
+<!--ref. dr-->
+function onSubmit(){
+    var s =document.getElementsByName('doctor')[0];
+    var dr=s.options[s.selectedIndex].text;
+    document.getElementById('doctor').value=dr;
+}
+
+<!--ref. Hospital-->
+function onSubmit(){
+    var s =document.getElementsByName('hospital')[0];
+    var hos=s.options[s.selectedIndex].text;
+    document.getElementById('hospital_value').value=hos;
 }
 </script>    
 </body>

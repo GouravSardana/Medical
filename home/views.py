@@ -29,7 +29,6 @@ class SignUp(TemplateView):
             password= self.request.POST.get('password')
             form = User.objects.create_user(first_name=first_name, last_name=last_name,email=email, username=username,password=password)  # = wala model ka naam
             form.save()
-            print(form)
             return HttpResponseRedirect(reverse('user_login'))
 
 
@@ -93,8 +92,6 @@ class Patient_details(ListView):
         features = User.objects.filter(groups__name='Doctor')
         patient = Patient_Detail.objects.all()
         hospital=Hospital.objects.all()
-        print(features)
-        print(patient)
         return render(request, 'patient-details.html', {'f': features, 'p': patient, 'hospital':hospital})
 
 
@@ -105,10 +102,13 @@ class Patient_details(ListView):
             IP = self.request.POST.get('IP')
             user_email=self.request.POST.get('user_email')
             gender = self.request.POST.get('gender')
+            doctor = self.request.POST.get('doctor')
+            hospital_value= self.request.POST.get('hospital_value')
             total= self.request.POST.get('total')
-            form = Patient_Detail(user=user, user_email=user_email, name=name, IP=IP,gender=gender, total=total)
+            form = Patient_Detail(user=user, user_email=user_email, name=name, IP=IP, gender=gender, doctor=doctor, hospital_value = hospital_value, total=total)
+            print(form)
             form.save()
-            return HttpResponse('Done')
+            return HttpResponseRedirect(reverse('patient_details'))
 
 
 class Medical_lib(ListView):
@@ -119,3 +119,8 @@ class Medical_lib(ListView):
         library = Medical_Library.objects.all()
         print(library)
         return render(request, 'diseases.html', {'library': library})
+
+
+@method_decorator(login_required, name='dispatch')
+class View_Patient(TemplateView):
+    template_name = 'view_patient.html'

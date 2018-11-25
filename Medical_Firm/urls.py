@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from home import views
-from home.views import Home, SignUp, Patient_details, Medical_lib
+from home.views import Home, SignUp, Patient_details, Medical_lib, View_Patient
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +27,6 @@ urlpatterns = [
     path('patient_details/', Patient_details.as_view(), name='patient_details'),
     path('logout/', views.user_logout, name='logout'),
     path('medical_library/', Medical_lib.as_view(), name='library'),
+    path('view_patient/', View_Patient.as_view(), name='patient'),
 ]
 

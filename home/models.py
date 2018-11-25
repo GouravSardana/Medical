@@ -19,6 +19,8 @@ class Patient_Detail(models.Model):
     IP=models.CharField(max_length=30)
     gender=models.CharField(max_length=10)
     user_email=models.CharField(max_length=40)
+    doctor=models.CharField(max_length=50)
+    hospital_value = models.CharField(max_length=50)
     balance_due=models.IntegerField(default=0)
     total=models.IntegerField(default=0)
 

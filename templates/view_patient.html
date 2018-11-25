@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patient Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Cabin" rel="stylesheet">
+    <!--Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+         h3{
+             font-family: Anton;
+             color: #b71c1c;
+             margin-top: 0px;
+         }
+         p{
+             font-family: Cabin;
+             font-size: 22px;
+         }
+         label{
+             font-size: 16px;
+         }
+         nav{
+            border-bottom: 4px solid #b71c1c;
+        }
+        .card{
+            align-content: center;
+            height: 770px;
+        }
+       #side-nav .card{
+           background-color: white;
+           height: 770px;
+        }
+        #side-nav .card a{
+            color: #b71c1c;
+            padding: 12px;
+            display: block;
+            font-size: 20px;
+            font-family: Cabin;
+            border-bottom: 2px solid #b71c1c;
+        }
+        #side-nav .card a:hover{
+            background-color: white;
+            color: black;
+        }
+        #person-icon{
+           padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="nav nav-wrapper transparent">
+            <div class="container">
+                <a href="#" class="brand-logo black-text">Medical Firm</a>
+                <ul class="right">
+                    <li><a class="black-text" href="#">Features</a></li>
+                    <li><a class="black-text" href="#">Tests</a></li>
+                    <li><a class="black-text" href="#">Genetics</a></li>
+                    <li><a class="black-text" href="/medical_library">Medical Library</a></li>
+                    <li><a href="" id="person-icon"><i class="material-icons red-text text-darken-4">person</i></a></li>
+                    <li><a class="black-text">{{request.user}}</a></li>
+                    <li><a href="{% url 'logout' %}" class="btn red darken-4">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="section">
+        <div class="row">
+            <div class="col m3 hide-on-small-and-down" id="side-nav">
+                <div class="card">
+                    <div class="card-content">
+                            <a href="/patient_details">Add Patient</a>
+                            <a href="/view_patient">View Patient</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col m9 s12">
+                <div class="card">
+                    <div class="card-content">
+                    <table>
+                            <tr class="red darken-4 white-text">
+                                <td><b>Patient Id</b></td>
+                                <td><b>Name</b></td>
+                                <td><b>Ref. Hospital</b></td>
+                                <td><b>Ref. Doctor</b></td>
+                                <td><b>IP No.</b></td>
+                                <td><b>Test</b></td>
+                                <td><b>Total</b></td>
+                            </tr>
+                            <tr>
+                                <td>1234567890</td>
+                                <td>Gourav Sardana</td>
+                                <td>Max Hospital</td>
+                                <td>Sakshat Lidhoo</td>
+                                <td>6780</td>
+                                <td>Fatti hui chut</td>
+                                <td>10 Cores</td>
+                            </tr>
+                    </table>
+                    </div>
+                </div>
+                  
+            </div>
+
+</body>
+</html>
