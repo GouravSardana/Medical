@@ -22,6 +22,7 @@ class Patient_Detail(models.Model):
     balance_due=models.IntegerField(default=0)
     total=models.IntegerField(default=0)
 
+
     @receiver(post_save, sender=User)
     def update_user_profile(sender, instance, created, **kwargs):
         try:
@@ -34,8 +35,20 @@ class Patient_Detail(models.Model):
     def __str__(self):
         return self.name
 
+
 class Hospital(models.Model):
     name=models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class Medical_Library(models.Model):
+    name=models.CharField(max_length=50)
+    symptoms=models.TextField(blank=True, null=True)
+    causes=models.TextField(blank=True, null=True)
+    diagnosis=models.TextField(blank=True, null=True)
+    treatment=models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name

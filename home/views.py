@@ -12,7 +12,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 from django.views.generic.list import ListView
 
-from home.models import Patient_Detail, Hospital
+from home.models import Patient_Detail, Hospital, Medical_Library
 
 
 class Home(TemplateView):
@@ -110,3 +110,12 @@ class Patient_details(ListView):
             form.save()
             return HttpResponse('Done')
 
+
+class Medical_lib(ListView):
+    template_name = 'diseases.html'
+    model = Medical_Library
+
+    def get(self, request, *args, **kwargs):
+        library = Medical_Library.objects.all()
+        print(library)
+        return render(request, 'diseases.html', {'library': library})
