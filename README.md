@@ -22,23 +22,6 @@ $ git clone https://github.com/GouravSardana/Medical
 - django
 ```
 
-## Installing Prerequisites
-
-```
-$ sudo apt-get update
-$ sudo apt-get install python3 python3-pip virtualenvwrapper python-dev libpq-dev postgresql postgresql-contrib
-```
-
-
-## Creating Virtual Enviornment
-* move to the cloned project directory
-```
-$ virtualenv -p /usr/bin/python3 env
-```
-activate the virtualenv
-```
-$ source env/bin/activate
-```
 
 
 ## Installing and Running the project
@@ -46,7 +29,9 @@ $ source env/bin/activate
 ```
 $ cd Medical
 ```
-
+```
+$ pip install -r requirement.txt
+```
 
 ```
 $ python manage.py makemigrations
