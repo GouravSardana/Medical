@@ -127,13 +127,13 @@
                                 </div>
                                 <div class="col m3 s6">
                                     <label for="gender"><b class="red-text text-darken-4">Gender</b></label>
-                                    <select required name="parameters" class="browser-default">
+                                    <select id="gender-select" required name="parameters" class="browser-default">
                                         <option value="" disabled selected>Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="undefined">Undefined</option>
                                     </select>
-                                    <input required id="gender" type="hidden" name="gender" />
+                                    <input id="gender" type="hidden" name="gender" />
                                 </div>
                             </div>
                             <div class="row">
@@ -208,7 +208,7 @@
                                 <div class="col m6 s12">
                                     <div class="group">
                                         <label for="text"><b class="red-text text-darken-4">Balance Due</b></label>
-                                        <input disabled type="text" name="balance" placeholder="Balance Due" />
+                                        <input  type="text" name="balance" placeholder="Balance Due" />
                                     </div>
                                 </div>
                             </div>
@@ -216,13 +216,13 @@
                                  <div class="col m6 s12">
                                     <div class="group">
                                         <label for="text"><b class="red-text text-darken-4">Total Amount</b></label>
-                                        <input disabled type="text" name="total" placeholder="Total" />
+                                        <input  type="text" name="total" placeholder="Total" />
                                     </div>
                                 </div>
                             </div>
                             <br>
                             <br>
-                            <button class="btn red darken-4" onclick="onSubmit()">Submit</button>
+                            <button class="btn red darken-4" onclick="getGender(); getHospital(); getDoctor(); ">Submit</button>
                             <button class="btn red darken-4">Print Report</button>
                     </div>
                 </div>
@@ -287,21 +287,25 @@ cell3.innerHTML = "NEW CELL1";
 }
 
 <!--gender-->
-function onSubmit(){
-    var s =document.getElementsByName('parameters')[0];
-    var text=s.options[s.selectedIndex].text;
-    document.getElementById('gender').value=text;
+<!--function onSubmit(){-->
+    <!--var s =document.getElementsByName('parameters')[0];-->
+    <!--var text=s.options[s.selectedIndex].text;-->
+    <!--document.getElementById('gender').value=text;-->
+<!--}-->
+function getGender(){
+    var gender = document.getElementById("gender-select").value;
+    document.getElementById("gender").value = gender;
 }
 
 <!--ref. dr-->
-function onSubmit(){
+function getDoctor(){
     var s =document.getElementsByName('doctor')[0];
     var dr=s.options[s.selectedIndex].text;
     document.getElementById('doctor').value=dr;
 }
 
 <!--ref. Hospital-->
-function onSubmit(){
+function getHospital(){
     var s =document.getElementsByName('hospital')[0];
     var hos=s.options[s.selectedIndex].text;
     document.getElementById('hospital_value').value=hos;
