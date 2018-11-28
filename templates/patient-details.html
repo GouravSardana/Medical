@@ -111,15 +111,21 @@
                             <div class="row">
                                 <div class="col m6 s12">
                                     <label for="ref-dr"><b class="red-text text-darken-4">Ref. Doctor</b></label>
-                                    <select required class="browser-default" name="doctor">
-                                        <option value="" disabled selected>Ref. Doctor</option>
-                                        <option value="">
-                                            {%for i in f%}
-                                                {{i}}
-                                            {%endfor%}
+                                    <input list="doctor-list" placeholder="Search Ref Hospital" type="text" name="doctor"/>
+                                    <datalist id="doctor-list">
+
+                                    <select multiple size="100" required class="browser-default" name="doctor">
+                                        <option value="" disabled selected>Ref. Hospital</option>
+                                        {% for i in f %}
+                                        <option value="{{i}}">
+
+                                            {{i}}
+
                                         </option>
+                                        {% endfor %}
+
                                     </select>
-                                    <input id="doctor" type="hidden" name="doctor" />
+                                    </datalist>
                                 </div>
                                 <div class="col m3 s6">
                                     <label for="dob"><b class="red-text text-darken-4">DOB</b></label>
@@ -139,10 +145,13 @@
                             <div class="row">
                                 <div class="col m6 s12">
                                     <label for="ref-hospital"><b class="red-text text-darken-4">Ref. Hospital</b></label>
-                                    <select required class="browser-default", name="hospital">
+                                    <input list="hospital-list" placeholder="Search Ref Hospital" type="text" name="hospital_value"/>
+                                    <datalist id="hospital-list">
+
+                                    <select multiple size="100" required class="browser-default" name="hospital">
                                         <option value="" disabled selected>Ref. Hospital</option>
                                         {% for i in hospital %}
-                                        <option value="1">
+                                        <option value="{{i}}">
 
                                             {{i}}
 
@@ -150,7 +159,8 @@
                                         {% endfor %}
 
                                     </select>
-                                    <input required id="hospital_value" type="hidden" name="hospital_value" />
+                                    </datalist>
+
                                 </div>
                                 <div class="col m6 s12">
                                     <div class="group">
@@ -175,14 +185,21 @@
                                 <div class="col m6 s12">
                                     <div class="group">
                                         <label for="text"><b class="red-text text-darken-4">Test Chart</b></label>
-                                        <input required type="text" placeholder="Add a test" />
+                                        <input required list="test-name" id="test" type="text" placeholder="Search Test" />
+                                        <datalist id="test-name">
+                                            <select multiple size="">
+                                                <option id="blood" value="blood">500</option>
+                                                <option id="urine" value="urine">200</option>
+                                                <option value="b1">100</option>
+                                            </select>
+                                        </datalist>
                                         <button onclick="myFunction(); return false;" class="btn-small red darken-4">add</button>
                                         <div style="display:none" id="table">
                                             <table>
                                                 <tr>
                                                     <td><b>Test Name</b></td>
-                                                    <td><b>Test Name</b></td>
-                                                    <td><b>Test Name</b></td>
+                                                    <td><b>Test Category</b></td>
+                                                    <td><b>Test Cost</b></td>
                                                 </tr>
                                             </table>
                                             <table id="testTable">
@@ -281,9 +298,9 @@ var row = table.insertRow(0);
 var cell1 = row.insertCell(0);
 var cell2 = row.insertCell(1);
 var cell3 = row.insertCell(2);
-cell1.innerHTML = "NEW CELL1";
-cell2.innerHTML = "NEW CELL1";
-cell3.innerHTML = "NEW CELL1";
+cell1.innerHTML = document.getElementById("test").value;
+cell2.innerHTML = document.getElementById("test").value;
+cell3.innerHTML = document.getElementById("blood").text;
 }
 
 <!--gender-->
