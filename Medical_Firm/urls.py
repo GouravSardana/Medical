@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from home import views
-from home.views import Home, SignUp, Patient_details, Medical_lib, View_Patient
+from home.views import Home, SignUp, Patient_details, Medical_lib,View_Patient
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -39,7 +39,8 @@ class LogIn(TemplateView):
 def user_login(request):
 
     if request.method == 'POST':
-        # First get the username and password supplied
+        # First get the username and password suppliedddfhd
+
         username = request.POST.get('username')
         password = request.POST.get('password')
 
