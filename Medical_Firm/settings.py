@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'https://medicalfirm.herokuapp.com/'
+    'https://medicalfirm.herokuapp.com/',
     'medicalfirm.herokuapp.com',
 ]
 
